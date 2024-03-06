@@ -16,12 +16,14 @@ document.addEventListener('DOMContentLoaded', function() {
 document.getElementById('toggle').addEventListener('click', function() {
   const sidebar = document.getElementById('sidebar');
   const toggle = document.getElementById('toggle');
-  const mainContent = document.getElementById('main-content');
 
   sidebar.classList.toggle('collapsed');
-  mainContent.classList.toggle('expanded'); // Adjust based on your layout needs
-
+  
+  // Toggle the text inside chevron based on the sidebar state
   toggle.textContent = sidebar.classList.contains('collapsed') ? 'chevron_right' : 'chevron_left';
+
+  // Update the position of the toggle button to follow the sidebar's current state
+  toggle.style.left = sidebar.classList.contains('collapsed') ? '0px' : '165px';  // Adjust '165px' as necessary to match your sidebar's width
 });
 
 // Dynamically change the content based on the selected menu item and potentially a subsection.
@@ -77,5 +79,3 @@ function sendEmail() {
   var body = "I thought you might find this page interesting: " + window.location.href;
   window.location.href = 'mailto:?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 }
-
-
