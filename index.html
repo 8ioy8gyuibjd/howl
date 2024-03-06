@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HOWL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="hamburger" class="material-icons" onclick="toggleMobileSidebar()">menu</div>
+    <div id="sidebar">
+        <h3 class="sidebar-title">America</h3>
+        <ul>
+            <li><a href="#fraud" onclick="changeContent('fraud')">voter fraud</a></li>
+            <li><a href="#demographics" onclick="changeContent('demographics')">demographics</a></li>
+            <li><a href="#crime" onclick="changeContent('crime')">crime</a></li>
+            <li><a href="#dei" onclick="changeContent('dei')">dei</a></li>
+            <li><a href="#health" onclick="changeContent('health')">health</a></li>
+            <li><a href="#trump" onclick="changeContent('trump')">trump</a></li>
+            <li><a href="#biden" onclick="changeContent('biden')">biden</a></li>
+        </ul>
+        <h3 class="sidebar-title">International</h3>
+        <ul>
+            <li><a href="#southafrica" onclick="changeContent('southafrica')">south africa</a></li>
+            <li><a href="#elsalvador" onclick="changeContent('elsalvador')">el salvador</a></li>
+            <li><a href="#sweden" onclick="changeContent('sweden')">sweden</a></li>
+            <li><a href="#denmark" onclick="changeContent('denmark')">denmark</a></li>
+            <li><a href="#unitedkingdom" onclick="changeContent('unitedkingdom')">united kingdom</a></li>
+        </ul>
+    </div>
+    <div id="toggle" class="material-icons" onclick="toggleSidebar()">chevron_left</div>
+    <div id="right-sidebar">
+      <div id="social-share">
+        <p>Share this page</p>
+        <a href="#" onclick="sendEmail();">
+          <i class="material-icons">email</i>
+        </a>
+        <p>Contact</p>
+        <a href="https://twitter.com/twitterhandle" target="_blank">
+          <img src="x-logo.png" alt="Twitter" style="height: 24px; width: 24px;">
+        </a>
+      </div>
+    </div>    
+    <div id="main-content">
+        <!-- Content updates here based on selection -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

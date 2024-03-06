@@ -1,0 +1,238 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #2a2a2a; /* Dark background for the body */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+#sidebar {
+  width: 165px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: #1e1e1e; /* Darker background for the sidebar */
+  transition: width 0.3s ease, left 0.3s ease;
+  overflow-y: auto; /* Allows vertical scrolling */
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+  color: #c7c7c7; /* Lighter text color for readability */
+}
+
+#sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-title {
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #ffffff; /* White color for titles for better contrast */
+  background-color: #2a2a2a; /* Slightly lighter than sidebar background for distinction */
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+#sidebar ul li a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #c7c7c7;
+  font-size: 18px;
+  background-color: #1e1e1e;
+  transition: background-color 0.3s;
+  white-space: nowrap; /* Prevents text from wrapping */
+  overflow: hidden; /* Ensures any overflow text is hidden */
+  text-overflow: ellipsis; /* Adds an ellipsis if the text overflows */
+}
+
+
+#sidebar ul li a:hover, #sidebar ul li a.active {
+  background-color: #be2e2e; /* Slightly lighter background for hover and active states */
+  color: #ffffff;
+}
+
+#toggle {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  left: 170px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff; /* White icon for better visibility */
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: left 0s ease;
+}
+
+#toggle i {
+  font-size: 30px;
+}
+
+#main-content {
+  margin-left: 250px;
+  margin-right: 150px; /* Centers the content and prevents it from stretching to the right edge */
+  max-width: 800px; /* You can adjust this value to suit your design */
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+  color: #f2ecec; /* White text for readability */
+}
+
+#main-content p {
+  background-color: #dbd6d6; /* White background for paragraph text */
+  color: #000000; /* Black text for paragraph */
+  padding: 5px; /* Add padding around the text for better readability */
+}
+
+#main-content ul {
+  list-style-type: none; /* Removes the bullets */
+}
+
+#main-content li {
+  background-color: #dbd6d6; /* White background for paragraph text */
+  color: #000000; /* Black text for paragraph */
+  padding: 5px; /* Add padding around the text for better readability */
+}
+
+hr {
+  color: #333333;
+}
+
+h2 {
+  color: #be2e2e;
+}
+
+h2 a {
+  color: inherit; /* Make the link color the same as the parent element */
+  text-decoration: none; /* Remove underline from the link */
+  cursor: default; /* Default cursor */
+}
+
+h2 a:hover {
+  cursor: pointer; /* Show the hand icon only on hover */
+}
+
+h2 a:visited {
+  color: inherit;
+}
+
+#main-content p {
+  font-size: 16px; /* Adjust the font size for paragraphs specifically */
+}
+
+a {
+  color: #be2e2e;
+}
+
+#sidebar.collapsed {
+  width: 0;
+  left: -250px;
+}
+
+#toggle.collapsed {
+  left: 0;
+}
+
+#main-content.collapsed {
+  margin-left: 0;
+}
+
+/* Desktop styles */
+#hamburger {
+  display: none;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  #sidebar {
+    width: 0;
+    visibility: hidden;
+  }
+
+  #hamburger {
+    display: block;
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    color: #ffffff; /* Ensuring visibility in night mode */
+    z-index: 2;
+  }
+
+  #toggle {
+    display: none;
+  }
+
+  #main-content {
+    margin-left: 0;
+  }
+}
+
+/* Style the scrollbar itself (width) */
+#sidebar::-webkit-scrollbar {
+  width: 10px; /* Adjust the width of the scrollbar */
+}
+
+/* Style the background of the scrollbar track */
+#sidebar::-webkit-scrollbar-track {
+  background: #2a2a2a; /* Dark background for the track */
+}
+
+/* Style the scrollbar thumb (the part that's draggable) */
+#sidebar::-webkit-scrollbar-thumb {
+  background-color: #444; /* Darker color for the thumb */
+  border-radius: 5px; /* Optional: rounds the corners */
+  border: 2px solid #2a2a2a; /* Same color as track to 'cut out' the thumb background */
+}
+
+/* Style the scrollbar thumb on hover */
+#sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Slightly lighter on hover for better visibility/interaction */
+}
+
+#toggle {
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera, and Firefox */
+}
+
+#right-sidebar {
+  width: 150px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #2a2a2a; /* Main background color for consistency */
+  color: #c7c7c7;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centers content vertically */
+}
+
+#social-share {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#right-sidebar i {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#right-sidebar p {
+  text-align: center;
+  margin: 10px 0;
+}
+
+#right-sidebar a {
+  color: #c7c7c7;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+#right-sidebar a:hover {
+  color: #ffffff;
+}
