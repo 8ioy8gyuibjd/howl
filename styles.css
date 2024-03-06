@@ -11,7 +11,7 @@ body {
   top: 0;
   bottom: 0;
   background: #1e1e1e; /* Darker background for the sidebar */
-  transition: width 0.3s ease, left 0.3s ease;
+  transition: left 0.3s ease;
   overflow-y: auto; /* Allows vertical scrolling */
   overflow-x: hidden; /* Prevents horizontal scrolling */
   color: #c7c7c7; /* Lighter text color for readability */
@@ -57,12 +57,12 @@ body {
   left: 170px;
   top: 50%;
   transform: translateY(-50%);
+  transition: left 0.3s ease;
   color: #ffffff; /* White icon for better visibility */
   background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
-  transition: left 0s ease;
 }
 
 #toggle i {
@@ -74,7 +74,6 @@ body {
   margin-right: 150px; /* Centers the content and prevents it from stretching to the right edge */
   max-width: 800px; /* You can adjust this value to suit your design */
   padding: 20px;
-  transition: margin-left 0.3s ease;
   color: #f2ecec; /* White text for readability */
 }
 
