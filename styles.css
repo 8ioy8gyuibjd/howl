@@ -73,7 +73,6 @@ body {
   margin-left: 250px;
   margin-right: 170px; /* Centers the content and prevents it from stretching to the right edge */
   max-width: 800px; /* You can adjust this value to suit your design */
-  padding: 40px;
   color: #f2ecec; /* White text for readability */
 }
 
