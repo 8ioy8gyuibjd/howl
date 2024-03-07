@@ -51,11 +51,16 @@ async function changeContent(contentId, subContentId = null) {
 
 // Toggle the sidebar in mobile view.
 function toggleMobileSidebar() {
-  const sidebar = document.getElementById('sidebar');
-  const mainContent = document.getElementById('main-content');
+  var sidebar = document.getElementById("sidebar");
+  sidebar.classList.toggle("visible");
 
-  sidebar.classList.toggle('mobile-visible');
-  mainContent.classList.toggle('mobile-collapsed'); // Adjust based on your layout needs
+  if (sidebar.classList.contains("visible")) {
+    sidebar.style.width = "165px";  // Or whatever your sidebar width should be
+    sidebar.style.visibility = "visible";
+  } else {
+    sidebar.style.width = "0";
+    sidebar.style.visibility = "hidden";
+  }
 }
 
 function sendEmail() {
@@ -79,3 +84,15 @@ function sendEmail() {
   var body = "I thought you might find this page interesting: " + window.location.href;
   window.location.href = 'mailto:?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 }
+
+document.getElementById('main-content').addEventListener('click', function() {
+  // Check if the screen width is 768px or less - typical for mobile devices
+  if (window.innerWidth <= 768) {
+    var sidebar = document.getElementById("sidebar");
+    if (sidebar.classList.contains("visible")) {
+      sidebar.classList.remove("visible");
+      sidebar.style.width = "0";
+      sidebar.style.visibility = "hidden";
+    }
+  }
+});
