@@ -136,7 +136,13 @@ a {
 }
 
 #hamburger {
-  display: none;
+  display: none; /* Ensures it's not displayed by default */
+  position: fixed;
+  right: 6px;
+  top: 10px;
+  font-size: 40px;
+  z-index: 1000;
+  padding-bottom: 10px;
 }
 
 #sidebar-footer {
@@ -161,13 +167,7 @@ a {
   }
 
   #hamburger {
-    display: block;
-    position: fixed;
-    right: 6px;
-    top: 10px;
-    font-size: 40px; 
-    z-index: 1000; /* High z-index to ensure it's above other content */
-    padding-bottom: 10px;
+    display: none;
   }
 
   #toggle {
@@ -227,7 +227,7 @@ a {
 }
 
 #right-sidebar {
-  width: 100px;
+  width: 110px;
   position: fixed;
   right: 0;
   top: 0;
