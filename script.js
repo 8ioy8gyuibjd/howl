@@ -1,3 +1,14 @@
+function adjustHamburgerDisplay() {
+  if (('ontouchstart' in window || navigator.maxTouchPoints > 0) && window.innerWidth <= 768) {
+    document.getElementById('hamburger').style.display = 'block';
+  } else {
+    document.getElementById('hamburger').style.display = 'none';
+  }
+}
+
+// Call on initial load
+adjustHamburgerDisplay();
+
 // This function handles both initial load and hash changes.
 function handleNavigation() {
   const fullHash = window.location.hash.substring(1); // Get the URL fragment without the '#'
