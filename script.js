@@ -11,10 +11,12 @@ adjustHamburgerDisplay();
 
 // This function handles both initial load and hash changes.
 function handleNavigation() {
-  const fullHash = window.location.hash.substring(1); // Get the URL fragment without the '#'
+  const fullHash = window.location.hash.substring(1);
   if (fullHash) {
     const [contentId, subContentId] = fullHash.includes('#') ? fullHash.split('#') : [fullHash, null];
     changeContent(contentId, subContentId);
+  } else {
+    changeContent('founders'); // Load the default content if no specific hash is found
   }
 }
 
