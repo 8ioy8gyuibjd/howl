@@ -270,3 +270,21 @@ a {
 #toggle {
   display: block; /* Ensure toggle is visible by default for wider screens */
 }
+
+#sidebar ul li .submenu {
+  padding-left: 20px;
+  display: none; /* Hide the submenu by default */
+}
+
+#sidebar ul li.active .submenu {
+  display: block; /* Display the submenu when the parent is active */
+}
+
+#sidebar ul li .submenu li a {
+  font-size: 16px; /* Smaller font size for submenu items */
+  color: #a9a9a9; /* Slightly lighter color for submenu items */
+}
+
+#sidebar ul li .submenu li a:hover {
+  color: #ffffff; /* White color for hover state */
+}
