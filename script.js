@@ -16,7 +16,7 @@ function handleNavigation() {
     const [contentId, subContentId] = fullHash.includes('#') ? fullHash.split('#') : [fullHash, null];
     changeContent(contentId, subContentId);
   } else {
-    changeContent('founders'); // Load the default content if no specific hash is found
+    changeContent('biden'); // Load the default content if no specific hash is found
   }
 }
 
