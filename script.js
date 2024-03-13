@@ -47,13 +47,40 @@ async function changeContent(contentId, subContentId = null) {
   const mainContent = document.getElementById('main-content');
   mainContent.innerHTML = htmlContent || '<p>Content not found.</p>';
 
-  // Highlight the active menu item.
-  document.querySelectorAll('#sidebar ul li a').forEach(item => {
+  // Clear existing active state and expanded lists.
+  document.querySelectorAll('#sidebar ul li').forEach(item => {
     item.classList.remove('active');
+    // Remove any previously added sub-menus.
+    const existingSubmenu = item.querySelector('ul');
+    if (existingSubmenu) {
+      item.removeChild(existingSubmenu);
+    }
   });
+
+  // Highlight the active menu item and expand sub-menu for h2 elements.
   const activeLink = document.querySelector(`#sidebar ul li a[href="#${contentId}"]`);
   if (activeLink) {
-    activeLink.classList.add('active');
+    const listItem = activeLink.parentElement;
+    listItem.classList.add('active');
+
+    const headers = mainContent.querySelectorAll('h2');
+    if (headers.length > 0) {
+      const submenu = document.createElement('ul');
+      submenu.classList.add('submenu');
+      headers.forEach(header => {
+        const subItem = document.createElement('li');
+        const subLink = document.createElement('a');
+        subLink.textContent = header.textContent.toLowerCase();
+        subLink.href = `#${contentId}#${header.id}`;
+        subLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          document.getElementById(header.id)?.scrollIntoView();
+        });
+        subItem.appendChild(subLink);
+        submenu.appendChild(subItem);
+      });
+      listItem.appendChild(submenu);
+    }
   }
 
   // If a subsection is specified, scroll to it.
