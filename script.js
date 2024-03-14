@@ -86,6 +86,8 @@ async function changeContent(contentId, subContentId = null) {
   // If a subsection is specified, scroll to it.
   if (subContentId) {
     document.getElementById(subContentId)?.scrollIntoView();
+  } else {
+    window.scrollTo(0, 0);
   }
 }
 
