@@ -41,6 +41,8 @@ document.getElementById('toggle').addEventListener('click', function() {
 
 // Dynamically change the content based on the selected menu item and potentially a subsection.
 async function changeContent(contentId, subContentId = null) {
+  window.scrollTo(0, 0);
+  
   const response = await fetch(`${contentId}.html`);
   const htmlContent = await response.text();
 
@@ -86,8 +88,6 @@ async function changeContent(contentId, subContentId = null) {
   // If a subsection is specified, scroll to it.
   if (subContentId) {
     document.getElementById(subContentId)?.scrollIntoView();
-  } else {
-    window.scrollTo(0, 0);
   }
 }
 
