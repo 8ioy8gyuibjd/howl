@@ -39,32 +39,35 @@ document.getElementById('toggle').addEventListener('click', function() {
   toggle.style.left = sidebar.classList.contains('collapsed') ? '0px' : '165px';  // Adjust '165px' as necessary to match your sidebar's width
 });
 
-// Dynamically change the content based on the selected menu item and potentially a subsection.
 async function changeContent(contentId, subContentId = null) {
   window.scrollTo(0, 0);
-  
   const response = await fetch(`${contentId}.html`);
   const htmlContent = await response.text();
 
   const mainContent = document.getElementById('main-content');
   mainContent.innerHTML = htmlContent || '<p>Content not found.</p>';
 
-  // Clear existing active state and expanded lists.
+  // Clear existing active state, submenus, and expanded lists.
   document.querySelectorAll('#sidebar ul li').forEach(item => {
-    item.classList.remove('active');
-    // Remove any previously added sub-menus.
-    const existingSubmenu = item.querySelector('ul');
+    item.classList.remove('active'); // Remove active state for submenu display.
+    item.querySelector('a')?.classList.remove('active'); // Remove active state for highlighting.
+
+    // Check for an existing submenu and remove it if found.
+    const existingSubmenu = item.querySelector('.submenu');
     if (existingSubmenu) {
       item.removeChild(existingSubmenu);
     }
   });
 
-  // Highlight the active menu item and expand sub-menu for h2 elements.
+  // Highlight the active menu item and manage the submenu.
   const activeLink = document.querySelector(`#sidebar ul li a[href="#${contentId}"]`);
   if (activeLink) {
-    const listItem = activeLink.parentElement;
-    listItem.classList.add('active');
+    activeLink.classList.add('active'); // Apply highlighting.
 
+    const listItem = activeLink.closest('li');
+    listItem.classList.add('active'); // Manage submenu display.
+
+    // Generate submenu based on h2 elements in the fetched content.
     const headers = mainContent.querySelectorAll('h2');
     if (headers.length > 0) {
       const submenu = document.createElement('ul');
