@@ -44,12 +44,6 @@ body {
   text-overflow: ellipsis; /* Adds an ellipsis if the text overflows */
 }
 
-
-#sidebar ul li a:hover, #sidebar ul li a.active {
-  background-color: #be2e2e; /* Slightly lighter background for hover and active states */
-  color: #ffffff;
-}
-
 #toggle {
   width: 30px;
   height: 30px;
@@ -92,12 +86,17 @@ body {
   padding: 5px; /* Add padding around the text for better readability */
 }
 
+#sidebar ul li a:hover, #sidebar ul li a.active {
+  background-color: #0070E0 !important;
+  color: #ffffff;
+}
+
 hr {
   color: #333333;
 }
 
 h2 {
-  color: #be2e2e;
+  color: #0070E0;
 }
 
 h2 a {
@@ -115,11 +114,11 @@ h2 a:visited {
 }
 
 #main-content p {
-  font-size: 16px; /* Adjust the font size for paragraphs specifically */
+  font-size: 18px; /* Adjust the font size for paragraphs specifically */
 }
 
 a {
-  color: #be2e2e;
+  color: #0070E0;
 }
 
 #sidebar.collapsed {
